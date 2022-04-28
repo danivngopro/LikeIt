@@ -1,0 +1,15 @@
+version: "3"
+services:
+  images-service:
+    build: ./
+    environment: 
+        DB_CONNECTION_URL: mongodb://mongo:27017
+        APPLICATION_PORT: 3003
+    ports:
+      - "3003:3003"
+    depends_on: 
+      - mongo
+  mongo:
+    image: mongo
+    ports: 
+      - "27017:27017"
