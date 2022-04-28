@@ -1,6 +1,6 @@
 export interface Image {
   id?: string;
-  imageId: number;
+  imageId: string;
   likes: number;
   dislikes: number;
 }

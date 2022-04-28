@@ -2,7 +2,7 @@ import * as Joi from 'joi-oid';
 
 
 const imageIdSchema = {
-  id: Joi.number(),
+  id: Joi.string(),
 };
 
 const imageBodySchema = {

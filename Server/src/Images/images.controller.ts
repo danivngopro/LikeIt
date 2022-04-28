@@ -10,7 +10,7 @@ export class ImageController {
   static async updateByid(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     const { inc, like } = req.body;
-    res.json(await ImageManager.updateByid(id as unknown as number, inc, like));
+    res.json(await ImageManager.updateByid(id, inc, like));
   }
 
 }

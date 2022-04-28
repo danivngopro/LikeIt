@@ -5,7 +5,7 @@ import { Image } from './images.interface';
 
 const imageschema: mongoose.Schema = new mongoose.Schema({
   imageId: {
-    type: Number,
+    type: String,
     required: true,
   },
   likes: {

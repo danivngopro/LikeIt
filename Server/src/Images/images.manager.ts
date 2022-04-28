@@ -10,17 +10,17 @@ export class ImageManager {
     return images;
   }
 
-  static async updateByid(id: number, inc: boolean, like: boolean): Promise<Image> {
+  static async updateByid(imageId: string, inc: boolean, like: boolean): Promise<Image> {
     let image;
 
-    if (like && inc) image = await ImageRepository.incrementLikeByid(id, 1);
-    else if (like && !inc) image = await ImageRepository.incrementLikeByid(id, -1);
-    else if (!like && inc) image = await ImageRepository.incrementDisLikeByid(id, 1);
-    else image = await ImageRepository.incrementDisLikeByid(id, -1);
+    if (like && inc) image = await ImageRepository.incrementLikeByid(imageId, 1);
+    else if (like && !inc) image = await ImageRepository.incrementLikeByid(imageId, -1);
+    else if (!like && inc) image = await ImageRepository.incrementDisLikeByid(imageId, 1);
+    else image = await ImageRepository.incrementDisLikeByid(imageId, -1);
 
     if (!image) {
-      await ImageRepository.create(id);
-      return this.updateByid(id, inc, like);
+      await ImageRepository.create(imageId);
+      return this.updateByid(imageId, inc, like);
     }
     return image;
   }

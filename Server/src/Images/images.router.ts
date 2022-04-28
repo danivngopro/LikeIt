@@ -7,7 +7,7 @@ import { getByimageIdSchema, updateByimageIdSchema } from './validator/images.sc
 
 const imagesRouter: Router = Router();
 
-imagesRouter.get('/id/:id', ValidateRequest(getByimageIdSchema), wrapAsync(ImageController.getall));
+imagesRouter.get('/', ValidateRequest(getByimageIdSchema), wrapAsync(ImageController.getall));
 imagesRouter.put('/id/:id', ValidateRequest(updateByimageIdSchema), wrapAsync(ImageController.updateByid));
 
 export { imagesRouter as imageRouter };
