@@ -1,7 +1,7 @@
 version: "3"
 services:
   images-service:
-    build: ./
+    build: .
     environment: 
         DB_CONNECTION_URL: mongodb://mongo:27017
         APPLICATION_PORT: 3003
