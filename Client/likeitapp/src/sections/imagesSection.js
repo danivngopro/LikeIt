@@ -11,23 +11,21 @@ function getLikesAndDislikes(i) {
   axios.get(`http://localhost:3003/api/images/id/${i}`).then((res) => {
     document.getElementById(`dislikesText${i}`).value = res.data.dislikes;
     document.getElementById(`likesText${i}`).value = res.data.likes;
-  }).catch((err) => err);
+  }).catch((err) => 0);
 }
 
 function sendDisLike(i) {
   axios.put(`http://localhost:3003/api/images/id/${i}`, {
     like: false,
     user: authentication.currentUser.uid,
-  });
-  getLikesAndDislikes(i);
+  }).then((res) => getLikesAndDislikes(i)).catch((err) => err);
 }
 
 function sendLike(i) {
   axios.put(`http://localhost:3003/api/images/id/${i}`, {
     like: true,
     user: authentication.currentUser.uid,
-  });
-  getLikesAndDislikes(i);
+  }).then((res) => getLikesAndDislikes(i)).catch((err) => err);
 }
 
 function ImageSection() {
