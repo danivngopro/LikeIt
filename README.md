@@ -15,7 +15,7 @@
 -	the database is a mongo database.
 
 example of the AI in proggress:
-![image](![image](https://user-images.githubusercontent.com/44786079/165924731-c7593c4d-8204-4f2d-a5c7-162fec56dc65.png))
+![image](![image](https://prnt.sc/OUJseWBpG7Vk))
 
 
 ### Installation:
