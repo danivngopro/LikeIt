@@ -14,9 +14,6 @@
 -	the backend is written in typescript using rest api.
 -	the database is a mongo database.
 
-example of the AI in proggress:
-![image](![image](https://prnt.sc/OUJseWBpG7Vk))
-
 
 ### Installation:
 
