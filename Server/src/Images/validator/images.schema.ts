@@ -6,8 +6,8 @@ const imageIdSchema = {
 };
 
 const imageBodySchema = {
-  inc: Joi.boolean(),
   like: Joi.boolean(),
+  user: Joi.string().allow(null, ''),
 };
 
 export const updateByimageIdSchema = Joi.object({
@@ -16,10 +16,16 @@ export const updateByimageIdSchema = Joi.object({
   params: imageIdSchema,
 });
 
-export const getByimageIdSchema = Joi.object({
+export const getAllSchema = Joi.object({
   body: {},
   query: {},
   params: {},
+});
+
+export const getByimageIdSchema = Joi.object({
+  body: {},
+  query: {},
+  params: imageIdSchema,
 });
 
 

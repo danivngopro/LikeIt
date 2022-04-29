@@ -1,7 +1,5 @@
 img {
     border-radius: 10px;
-    margin-left: 4px;
-    margin-right: 4px;
 }
 
 .hover06 figure img {
@@ -52,6 +50,7 @@ img {
   touch-action: manipulation;
   width: 76px;
   margin-left: 5px;
+  margin-bottom: 4px;
 }
 
 .button-1:hover,
@@ -91,3 +90,14 @@ img {
     background-color: #6758f1;
   }
   
+
+  .imgContainer {
+    border: #4888d1 solid 1px;
+    border-radius: 10px;
+    margin: 4px;
+  }
+
+  .counter {
+    width: 23px;
+    margin-left: 10px;
+  }

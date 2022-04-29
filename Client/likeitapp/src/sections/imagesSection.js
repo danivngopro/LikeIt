@@ -1,34 +1,36 @@
 import "./imagesSection.css";
 import React from "react";
 import axios from "axios";
+import { authentication } from "../Firebase/firebase";
 
 function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function getLikesAndDislikes(i) {
+  axios.get(`http://localhost:3003/api/images/id/${i}`).then((res) => {
+    document.getElementById(`dislikesText${i}`).value = res.data.dislikes;
+    document.getElementById(`likesText${i}`).value = res.data.likes;
+  }).catch((err) => err);
+}
+
 function sendDisLike(i) {
-  const headers = { 
-    'Access-Control-Allow-Origin' : '*',
-    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-  };
   axios.put(`http://localhost:3003/api/images/id/${i}`, {
-    inc: true,
     like: false,
-  }, headers);
+    user: authentication.currentUser.uid,
+  });
+  getLikesAndDislikes(i);
 }
 
 function sendLike(i) {
-  const headers = { 
-    'Access-Control-Allow-Origin' : '*',
-    'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-  };
   axios.put(`http://localhost:3003/api/images/id/${i}`, {
-    inc: true,
     like: true,
-  }, headers);
+    user: authentication.currentUser.uid,
+  });
+  getLikesAndDislikes(i);
 }
 
-function Header() {
+function ImageSection() {
   let images = [];
   let limit = 0;
   let imgSelectionRange = 1;
@@ -43,11 +45,29 @@ function Header() {
       const newImgUrl = `https://picsum.photos/id/${randomIndex}/200/300`;
 
       const newImg = (
-        <div key={randomIndex}>
+        <div key={randomIndex} className="imgContainer">
           <div className="hover06 column">
             <figure>
               <img src={newImgUrl} alt="1" className="image"></img>
             </figure>
+          </div>
+          <div>
+            <input
+              type="text"
+              id={`dislikesText${randomIndex}`}
+              value="0"
+              className="counter"
+              readOnly
+              disabled
+            ></input>
+            <input
+              type="text"
+              id={`likesText${randomIndex}`}
+              value="0"
+              className="counter"
+              readOnly
+              disabled
+            ></input>
           </div>
           <button
             className="button-2"
@@ -79,4 +99,4 @@ function Header() {
   return <div className="flex-container">{images.map((image) => image)}</div>;
 }
 
-export default Header;
+export default ImageSection;

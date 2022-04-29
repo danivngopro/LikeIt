@@ -3,4 +3,6 @@ export interface Image {
   imageId: string;
   likes: number;
   dislikes: number;
+  likers: string[];
+  dislikers: string[];
 }

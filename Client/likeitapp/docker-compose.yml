@@ -1,6 +1,6 @@
 version: "3"
 services:
-  likeit:
+  client:
     build: .
     container_name: client
     ports:
@@ -8,8 +8,9 @@ services:
     stdin_open: true
     tty: true
   
-  images-service:
+  server:
     build: ../../Server
+    container_name: server
     environment: 
         DB_CONNECTION_URL: mongodb://mongo:27017
         APPLICATION_PORT: 3003
@@ -17,6 +18,7 @@ services:
       - "3003:3003"
     depends_on: 
       - mongo
+
   mongo:
     image: mongo
     ports: 

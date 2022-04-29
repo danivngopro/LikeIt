@@ -2,6 +2,7 @@
   "dependencies": {
     "@devexpress/dx-react-core": "^3.0.2",
     "ag-grid-community": "^27.2.1",
-    "ag-grid-react": "^27.2.1"
+    "ag-grid-react": "^27.2.1",
+    "firebase": "^9.7.0"
   }
 }

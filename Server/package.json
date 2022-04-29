@@ -40,7 +40,8 @@
     "mongoose": "^6.2.1",
     "morgan": "^1.10.0",
     "passport": "^0.5.2",
-    "passport-jwt": "^4.0.0"
+    "passport-jwt": "^4.0.0",
+    "react-csv": "^2.2.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",

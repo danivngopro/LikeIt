@@ -14,6 +14,12 @@ const imageschema: mongoose.Schema = new mongoose.Schema({
   dislikes: {
     type: Number,
   },
+  likers: {
+    type: [String],
+  },
+  dislikers: {
+    type: [String],
+  },
 }, {
   toJSON: {
     virtuals: true,
